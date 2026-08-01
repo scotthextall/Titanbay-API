@@ -107,7 +107,7 @@ def list_investments(fund_id: UUID, db: Session = Depends(get_db)):
 
 # POST /funds/{fund_id}/investments endpoint
 @app.post("/funds/{fund_id}/investments", response_model=schemas.InvestmentOut, status_code=201)
-def update_investment(payload: schemas.InvestmentCreate, fund_id: UUID, db: Session = Depends(get_db)):
+def create_investment(payload: schemas.InvestmentCreate, fund_id: UUID, db: Session = Depends(get_db)):
     fund = db.get(models.Fund, fund_id)
     if fund is None:
         raise HTTPException(status_code=404, detail="Fund Not Found")
