@@ -60,3 +60,4 @@ The API will be available at `http://localhost:8000`. Interactive docs (Swagger 
 - Used Claude to help with design planning and explaining overall concepts, treating it as an AI assistant rather than writing everything end-to-end. This was so I could fully understand how things come together, and prioritise learning opportunities vs simply getting the task done - e.g. taking time to write things myself followed by seeing what Claude would improve on
 - Claude supported in troubleshooting initial environment setup (e.g. Postgres installation and configuration on Windows)
 - Challenged Claude where I felt design decisions were more complex than the 2-3 hour scope justified, aiming for a balance between good practice vs something I could explain end-to-end given my current ability and understanding
+- Used Claude to create seed.py to generate test data
