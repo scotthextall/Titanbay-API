@@ -17,7 +17,7 @@ Base.metadata.create_all(bind=engine)
 @app.get("/funds", response_model=list[schemas.FundOut])
 def list_funds(db: Session = Depends(get_db)):
 
-    # Get every row from funds table, return as list
+    # Get every row from funds table via SQLAlchemy. Equivalent to SELECT * FROM funds
     return db.query(models.Fund).all()
 
 # POST /funds endpoint. Payload is the validated FundCreate object. Use status_code 201 for successful creation
