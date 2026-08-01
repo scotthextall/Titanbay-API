@@ -29,7 +29,10 @@ class Investor(Base):
     id = Column(Uuid, primary_key=True, default=uuid.uuid4)
     name = Column(String, nullable=False)
     investor_type = Column(String, nullable=False)
+
+    # Investor email must be unique - i.e. no duplicates in table
     email = Column(String, nullable=False, unique=True)
+
     created_at = Column(DateTime, default=datetime.utcnow, nullable=False)
 
     # Relationship between investments and investors
