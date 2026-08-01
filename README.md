@@ -74,12 +74,12 @@ requirements.txt
 
 - **IDs**: UUIDs, generated automatically by the server.
 - **`PUT /funds`**: Spec puts `id` in the request body rather than the URL, so this endpoint replaces every field except `id` and `created_at`.
-- **Enums**: `Fund.status` (`Fundraising`/`Investing`/`Closed`) and `Investor.investor_type` (`Individual`/`Institution`/`Family Office`) are validated at the API layer via Pydantic in schemas.py
 - **`vintage_year`**: Constrained to 1900–2100 as a range - the spec doesn't define bounds, so assumption made here
 - **Investor email**: Assumed email must be unique, enforced at database level in models.py; Duplicate returns `409 Conflict`.
 - **Investment amount**: Stored as `Numeric`/`Decimal` rather than float, to avoid floating-point rounding errors
 - **404s for missing relations**: Creating an investment against a fund or investor ID that doesn't exist returns status code `404` 
 - **HTTP status codes**: Followed HTTP status code conventions such as `404` for missing funds/investors, `201` for creating new fund/investor/investment, `409` for conflicting investor emails
+- **Default status for new fund**: Newly created fund defaults to "Fundraising" status
 
 ## How I Worked With AI Tools
 

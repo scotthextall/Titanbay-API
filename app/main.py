@@ -79,8 +79,7 @@ def list_investors(db: Session = Depends(get_db)):
 def create_investor(payload: schemas.InvestorCreate, db: Session = Depends(get_db)):
     investor = models.Investor(**payload.model_dump())
 
-    # Stage new investor and write to Postgres
-    # Email must be unique (see models.py). If duplicate, SQLAlchemy raises IntegrityError. Rollback failed transaction
+    # Stage new investor and write to Postgres. Email must be unique (see models.py). If duplicate, SQLAlchemy raises IntegrityError. Rollback failed transaction
     db.add(investor)
     try:
         db.commit()

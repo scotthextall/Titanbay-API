@@ -16,7 +16,10 @@ class Fund(Base):
     name = Column(String, nullable=False)
     vintage_year = Column(Integer, nullable=False)
     target_size_usd = Column(Numeric(18, 2), nullable=False)
+
+    # Newly created fund defaults to "Fundraising" status
     status = Column(String, nullable=False, default="Fundraising")
+
     created_at = Column(DateTime, default=datetime.utcnow, nullable=False)
 
     # Relationship between investments to the fund they are in

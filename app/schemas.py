@@ -27,8 +27,7 @@ class FundUpdate(FundCreate):
 
 # Define server response body
 class FundOut(FundCreate):
-    # Allows Pydantic to build object from SQLAlchemy model attributes - e.g. fund.name, fund.id, fund.vintage_year etc.
-    # Without this, can only build using dictionary
+    # Allows Pydantic to build object from SQLAlchemy model attributes - e.g. fund.name, fund.id, fund.vintage_year etc. Without this, can only build using dictionary
     model_config = ConfigDict(from_attributes=True)
     id: UUID
     created_at: datetime
