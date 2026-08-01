@@ -1,4 +1,4 @@
-"""Defines tables that exist in database, columns, and relationships"""
+"""Describes tables that exist in the database such as columns, and relationships"""
 
 import uuid
 from datetime import datetime, date
