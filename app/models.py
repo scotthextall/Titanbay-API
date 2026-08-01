@@ -43,8 +43,11 @@ class Investment(Base):
     __tablename__ = "investments"
 
     id = Column(Uuid, primary_key=True, default=uuid.uuid4)
+
+    # Match investor_id and fund_id to id from investors and funds table respectively
     investor_id = Column(Uuid, ForeignKey("investors.id"), nullable=False)
     fund_id = Column(Uuid, ForeignKey("funds.id"), nullable=False)
+
     amount_usd = Column(Numeric(18, 2), nullable=False)
     investment_date = Column(Date, default=date.today, nullable=False)
 
